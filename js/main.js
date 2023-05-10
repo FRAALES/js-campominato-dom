@@ -11,4 +11,8 @@ grigliaVeraEPropria.innerHTML = '<div id = grid></div>';
 let bottoneCompareGriglia = document.getElementById('btn');
 
 //Dì al bottone che quando lo clicchi deve far apparire la griglia
-bottoneCompareGriglia.addEventListener('click', grigliaVeraEPropria);
+bottoneCompareGriglia.addEventListener('click', 
+    function(){
+        grigliaVeraEPropria.style.display = 'block';
+
+});
