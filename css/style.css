@@ -29,10 +29,11 @@ main {
     width: 500px;
     height: 500px;
     border: solid 2px black;
-
 }
 
+
 .square{
+    float: left;
     width: calc(100% / 10);
     height: calc(100% / 10);
     border: solid 1px black;

@@ -6,7 +6,7 @@ let bottoneCompareGriglia = document.getElementById('btn');
 
 //Dì al bottone che quando lo clicchi deve far apparire la griglia
 bottoneCompareGriglia.addEventListener('click', 
-    function(){
+    function creaGriglia (){
         //Creo la griglia in un div a cui ho già dato id nell'html
         grigliaVeraEPropria.innerHTML = '<div id = "grid"></div>';
         
@@ -23,9 +23,8 @@ bottoneCompareGriglia.addEventListener('click',
             createSquare.classList.add('square');
 
 
-            //e voglio appenderli alla grid (selezionandola prima!)
-            let selezionoGriglia = document.querySelector('#grid-container');
-            selezionoGriglia.append(createSquare);
+            // e li appendo alla grid
+            grigliaVeraEPropria.append(createSquare);
 
 
 
