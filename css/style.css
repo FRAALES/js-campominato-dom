@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* Regole header */
+
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+}
+
+
+/* Regole main */
+main {
+    height: 500px;
+    background-color: aqua;
+}
+
+
+
+
+/* Regole footer */
+footer {
+    background-color: white;
+    height: 100px;
+}
+
+#footer-p{
+    padding: 30px;
+}
