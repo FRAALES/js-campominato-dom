@@ -9,20 +9,35 @@
 
 header {
     background-color: white;
+    height: 100px;
+}
+
+.header-container{
     display: flex;
     justify-content: space-around;
-    height: 100px;
+    padding: 25px;
 }
 
 
 /* Regole main */
 main {
-    height: 500px;
+    height: 800px;
     background-color: aqua;
 }
 
+#grid{
+    width: 500px;
+    height: 500px;
+    border: solid 2px black;
 
+}
 
+.square{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: solid 1px black;
+
+}
 
 /* Regole footer */
 footer {
