@@ -1,62 +1,83 @@
-//Definisci la variabile per il contenitore della griglia che creerai nel prossimo passaggio
-let grigliaVeraEPropria = document.getElementById('grid-container');
+const gridCont = document.getElementById("grid");
+const levl = parseInt(prompt("livello?"));
+var points = 0;
 
-//definisci la variabile per il bottone che farà apparire la griglia
-let bottoneCompareGriglia = document.getElementById('btn');
+// const generaElemento = (elementGen, classPlus) => {
+//     let node = document.createElement(elementGen);
+//     node.classList.add(classPlus);
+//     return node
+// }
 
-//Dì al bottone che quando lo clicchi deve far apparire la griglia
-bottoneCompareGriglia.addEventListener('click', 
-    function creaGriglia (){
-        //Creo la griglia in un div a cui ho già dato id nell'html
-        grigliaVeraEPropria.innerHTML = '<div id = "grid"></div>';
-        
+// genero l'array bombe
+const bombList = bombGen(16, 1, levl);
+ console.log(bombList);
 
-        //creo i quadrati all'interno della griglia
-        let numeroDiSquares;
+for(let i = 1; i <= levl; i++){
 
-        for (let i= 1; i <= 100; i++){
-            //Voglio creare un div per 100 volte
-            let createSquare = document.createElement('div');
+    let newElem = generaElemento("div", "square", i);    
 
+    newElem.addEventListener("click",
+        function(){
+            // newElem.classList.add("clicked-true");
+            console.log(this);
+            this.classList.add("clicked-true");
 
-            //a questi 100 div voglio dare classe 'square'
-            createSquare.classList.add('square');
+            let numInt = parseInt(this.innerText);
 
-
-            // e li appendo alla grid
-            grigliaVeraEPropria.append(createSquare);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            // se è una bomba agiungo altra classe
+            if(bombList.includes(numInt)){
+                this.classList.add("boom");
+                console.log("BOOOM! FINE GIOCO!!, hai totalizzato punti: ", points);
+            } else {
+                ++points;
+                console.log("BRAVO/A!!! punteggio momentaneo a:", points);
+            }
+            // console.log(this.innerText);
+            // sennò aggiungo punto
         }
-        
+
+
+        // () => {
+        //     // newElem.classList.add("clicked-true");
+        //     console.log(this);
+        //     this.classList.add("clicked-true");
+        // }
+    );
+
+    gridCont.appendChild(newElem);
+}
 
 
 
 
+// funzioni utili
 
+//  crea elemento del DOM
+function generaElemento(elementGen, classPlus, tex) {
+    let node = document.createElement(elementGen);
+    node.append(tex);
+    node.classList.add(classPlus);
+    return node
+}
 
+// crea array di numeri bomba
+function bombGen (bombnum, min, max){
+    let arrBombs = [];
+    while(arrBombs.length < bombnum){
+        let num = getRandomInt(min, max);
+        if(!arrBombs.includes(num)){
+            arrBombs.push(num);
+        }
+    }
+    return arrBombs
 
+}
 
+// crea numeri random tra min e max
+function getRandomInt(min, max) {
+    min = Math.ceil(min) || 0;
+    max = Math.floor(max) || Number.MAX_SAFE_INTEGER;
+    let result = Math.floor(Math.random() * (max - min + 1)) + min;
+    return result;
+  }
 
-
-
-
-
-
-});
